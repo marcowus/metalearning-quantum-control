@@ -1,0 +1,50 @@
+
+# Random Seed (for reproducibility)
+seed: 42
+
+# Quantum System
+target_gate: 'pauli_x'  # 'hadamard', 'pauli_x', 'pauli_y'
+gate_time: 1.0  # Total evolution time (arbitrary units)
+num_qubits: 1
+
+# ==== GAMMA TASK DISTRIBUTION ====
+# Direct Lindblad decay rates (Markovian noise)
+task_dist_type: 'uniform'
+
+# Dephasing rate range [1/s]
+# gamma_deph controls T2* decay (pure dephasing)
+# Typical range: 0.02 to 0.15 (corresponds to T2* ~ 7s to 50s)
+gamma_deph_range: [0.02, 0.15]
+
+# Relaxation rate range [1/s]
+# gamma_relax controls T1 decay (energy relaxation)
+# Typical range: 0.01 to 0.08 (corresponds to T1 ~ 12s to 100s)
+gamma_relax_range: [0.01, 0.08]
+
+# Diversity scale (1.0 = full range, 0.5 = half range centered)
+diversity_scale: 1.0
+
+task_feature_dim: 3
+hidden_dim: 128
+n_hidden_layers: 2
+n_segments: 60
+n_controls: 2
+output_scale: 1.0
+activation: 'tanh'
+
+
+inner_lr: 0.01      # Learning rate for inner loop adaptation
+inner_steps: 5      # Number of gradient steps per task
+meta_lr: 0.001      # Meta-learning rate
+first_order: true   # Use FOMAML (faster, more stable)
+
+n_iterations: 1000
+tasks_per_batch: 32  # Tasks per meta-batch
+n_support: 10        # Support set size per task
+n_query: 10          # Query set size per task
+log_interval: 10
+val_interval: 10
+val_tasks: 20
+
+
+save_dir: 'checkpoints_gamma'
