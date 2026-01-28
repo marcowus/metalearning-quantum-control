@@ -118,65 +118,6 @@ controls = policy(task_features)
 print(f"Control shape: {controls.shape}")  # [1, n_segments, 2]
 ```
 
-## Configuration
-
-### Gamma-Rate Configuration (`configs/experiment_config_gamma.yaml`)
-
-```yaml
-# Random seed for reproducibility
-seed: 42
-
-# Quantum System
-horizon: 1.0                      # Evolution time
-target_gate: 'pauli_x'            # Target: 'pauli_x', 'pauli_y', 'hadamard'
-num_qubits: 1
-
-# Gamma Task Distribution (decoherence rates)
-gamma_deph_range: [0.02, 0.15]    # Dephasing rate range
-gamma_relax_range: [0.01, 0.08]   # Relaxation rate range
-task_dist_type: 'uniform'
-
-# Policy Network Architecture
-task_feature_dim: 3               # Input: normalized gamma features
-hidden_dim: 64
-n_hidden_layers: 2
-n_segments: 20                    # Number of pulse segments
-n_controls: 2                     # X and Y control channels
-activation: 'tanh'
-
-# MAML Hyperparameters
-inner_lr: 0.01                    # Inner loop learning rate
-inner_steps: 5                    # Adaptation steps (K)
-meta_lr: 0.001                    # Meta learning rate
-first_order: true                 # Use FOMAML (recommended)
-
-# Training
-n_iterations: 2000
-tasks_per_batch: 8
-val_interval: 10
-val_tasks: 20
-
-# Checkpointing
-save_dir: 'checkpoints_gamma'
-```
-
-### PSD-Based Configuration (`configs/experiment_config.yaml`)
-
-```yaml
-# Quantum System
-psd_model: 'one_over_f'           # Noise model: 'one_over_f', 'lorentzian'
-
-# Task Distribution (noise parameter ranges)
-alpha_range: [0.1, 2.0]           # Spectral exponent range
-A_range: [0.01, 10.0]             # Noise amplitude range
-omega_c_range: [1.0, 300.0]       # Cutoff frequency range
-
-# Policy Network Architecture
-task_feature_dim: 3               # Input: (alpha, A, omega_c)
-hidden_dim: 128
-n_segments: 60
-```
-
 ## Reproducing Paper Figures
 
 All experiments are organized by figure number. Each script uses fixed random seeds for reproducibility.
