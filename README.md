@@ -1,5 +1,6 @@
 # Meta-Reinforcement Learning for Adaptive Quantum Control
-Author: Nima Leclerc (nleclerc@mitre.org) -- Quantum Research Scientist at MITRE
+Author: Nima Leclerc (nleclerc@mitre.org) -- PI for Adaptive Quantum Sensing and Quantum Research Scientist at MITRE
+
 © 2025 The MITRE Corporation, All Rights Reserved
 
 Approved for Public Release; Distribution Unlimited. Public Release Case Number 25-2936.  
