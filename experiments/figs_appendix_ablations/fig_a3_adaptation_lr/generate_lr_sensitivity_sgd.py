@@ -32,7 +32,7 @@ plt.rcParams.update({
     # Type 1 font settings for publication
     'pdf.fonttype': 42,  # TrueType fonts (Type 42) - accepted by journals
     'ps.fonttype': 42,   # TrueType fonts in PostScript
-    'text.usetex': True,  # Use LaTeX for proper Type 1 fonts
+    'text.usetex': False,  # Use LaTeX for proper Type 1 fonts
     'text.latex.preamble': r'\usepackage{amsmath} \usepackage{amssymb}',
 })
 
