@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
 plt.rcParams.update({
-    'text.usetex': False,
+    'text.usetex': True,
     'font.family': 'serif',
     'font.serif': ['Computer Modern'],
     'font.size': 18,

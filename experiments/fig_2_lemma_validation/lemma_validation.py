@@ -10,7 +10,7 @@ from scipy.linalg import expm, norm
 import matplotlib.pyplot as plt
 
 plt.rcParams.update({
-    'text.usetex': False,
+    'text.usetex': True,
     'font.family': 'serif',
     'font.serif': ['Computer Modern'],
     'font.size': 9,

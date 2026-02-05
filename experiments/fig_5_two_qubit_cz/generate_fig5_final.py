@@ -206,7 +206,7 @@ def maml_inner_loop(policy, task, K, inner_lr, device):
     return adapted
 
 
-def train_maml(n_iterations=5, device='cpu'):
+def train_maml(n_iterations=150, device='cpu'):
     print("Training FOMAML...")
     policy = PulsedCouplingPolicy().to(device)
     optimizer = optim.AdamW(policy.parameters(), lr=0.002, weight_decay=1e-4)
@@ -311,9 +311,9 @@ def main():
 
     # Collect adaptation curves
     print("\nCollecting adaptation curves...")
-    max_K = 5
+    max_K = 30
     K_values = np.arange(max_K + 1)
-    n_tasks = 2
+    n_tasks = 12
 
     all_curves = []
     for i in range(n_tasks):

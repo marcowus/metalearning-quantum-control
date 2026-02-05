@@ -31,7 +31,7 @@ plt.rcParams.update({
     'figure.dpi': 150, 
     'pdf.fonttype': 42,   
     'ps.fonttype': 42,    
-    'text.usetex': False,
+    'text.usetex': True,
     'text.latex.preamble': r'\usepackage{amsmath} \usepackage{amssymb}',
 })
 
